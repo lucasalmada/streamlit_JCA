@@ -52,8 +52,8 @@ st.title(':bar_chart: Números anuais do operacional')
 st.markdown("""---""")
 
 # ---- SIDEBAR ----
-st.sidebar.markdown("<h1 style='text-align: center;'>Barra Lateral</h1>", unsafe_allow_html=True)
-st.sidebar.markdown("---")
+st.sidebar.markdown("<h1 style='text-align: center;'></h1>", unsafe_allow_html=True)
+
 st.sidebar.image('logo2.png', caption='Manutenção de motores')
 st.sidebar.header("Adicione Filtros")
 ano = st.sidebar.multiselect(
