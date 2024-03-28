@@ -84,26 +84,25 @@ col4.metric("Equipamentos devolvidos", "3 OS's")
 st.markdown("""---""")
 
 
-col = st.columns((6, 2), gap='medium')
+col = st.columns((5, 2), gap='large')
 
 with col[0]:
-    #st.markdown('#### Análise Gráfica')
+    st.markdown('#### Análise Geral')
 
-    grafico1 = px.bar(melted_df, x = 'Mês', y = 'Quantidade', 
-                  title=f'Análise geral',color='STATUS',barmode='group',text='Quantidade',height=400)
+    grafico1 = px.bar(melted_df, x = 'Mês', y = 'Quantidade',color='STATUS',barmode='group',text='Quantidade',height=400)
 
     grafico1.update_layout(xaxis=dict(tickmode="linear"), plot_bgcolor="rgba(0,0,0,0)", yaxis=(dict(showgrid=False)),)
     st.plotly_chart(grafico1,use_container_width=True)
 
 
-dados = [['Cliente 1',15],
-         ['Cliente 2',9],
-         ['Cliente 3',11],
-         ['Cliente 4',8],
-         ['Cliente 5',12],
-         ['Cliente 1',15],
-         ['Cliente 2',9],
-         ['Cliente 3',11]]
+dados = [['MULTIBLOCO',15],
+         ['BROMBERG',13],
+         ['NOVA OPÇÃO',11],
+         ['IGUÁ RJ',10],
+         ['MIPE',8],
+         ['IGUÁ MP',8],
+         ['ICTSI RIO',6],
+         ['VALUX',3]]
 
 df_clientes = pd.DataFrame(dados, columns = ['Cliente', 'Servicos'])
 
@@ -127,19 +126,34 @@ with col[1]:
     # Formatar valores de Serviços para serem exibidos na barra de progresso
     # Exibir DataFrame com barras de progresso coloridas
     st.dataframe(df_clientes, column_config=column_config, hide_index=True,
-                 width=None)
+                 width=1500)
 
+data = {
+    'Mês':['Jan','Fev','Mar'],
+    'Tempo médio': [44.6,17.8,12.3]
+}
+
+df2 = pd.DataFrame(data)
+
+
+data = {
+    'Mês':['Jan','Fev','Mar','Jan','Fev','Mar'],
+    'STATUS': ['ENTRADAS GERAL','ENTRADAS GERAL','ENTRADAS GERAL','ENVIO PARA COMERCIAL','ENVIO PARA COMERCIAL','ENVIO PARA COMERCIAL'],
+    'Quantidade': [56,67,62,51,60,54]
+}
+
+df3 = pd.DataFrame(data)
 
 colz1,colz2 = st.columns(2)
 
 with colz1:
-    fig = px.bar(melted_df, x = 'Mês', y = 'Quantidade', 
-                title=f'Quantidade de processos por: {1}',color='STATUS',barmode='group',text='Quantidade',height=300)
+    fig = px.bar(df2, x = 'Mês', y = 'Tempo médio', 
+                title=f'Tempo médio de manutenção',barmode='group',text='Tempo médio',height=300)
     st.plotly_chart(fig,use_container_width=True)
 
 with colz2:
-    fig = px.bar(melted_df, x = 'Mês', y = 'Quantidade', 
-                title=f'Quantidade de processos por: {1}',color='STATUS',barmode='group',text='Quantidade',height=300)
+    fig = px.bar(df3, x = 'Mês', y = 'Quantidade', 
+                title=f'Envio para o orçamento',color='STATUS',barmode='group',text='Quantidade',height=300)
     st.plotly_chart(fig,use_container_width=True)
 
 
