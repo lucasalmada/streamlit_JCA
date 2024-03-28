@@ -140,7 +140,7 @@ df2 = pd.DataFrame(data)
 data = {
     'Mês':['Jan','Fev','Mar','Jan','Fev','Mar'],
     'STATUS': ['ENTRADAS GERAL','ENTRADAS GERAL','ENTRADAS GERAL','ENVIO PARA COMERCIAL','ENVIO PARA COMERCIAL','ENVIO PARA COMERCIAL'],
-    'Quantidade': [56,67,62,51,60,54]
+    'Quantidade': [56,67,62,42,48,32]
 }
 
 df3 = pd.DataFrame(data)
