@@ -31,6 +31,8 @@ pivot_df['ENTRADAS GERAL'] = pivot_df.sum(axis=1)
 # Melt para criar uma única coluna para os valores
 melted_df = pivot_df.melt(id_vars='Mês', var_name='STATUS', value_name='Quantidade')
 
+melted_df['Mês'] = melted_df['Mês'].replace({1:'Jan',2:'Fev',3:'Mar'})
+
 #Usar
 #https://blog.streamlit.io/crafting-a-dashboard-app-in-python-using-streamlit/
 
@@ -53,7 +55,6 @@ st.markdown("""---""")
 
 # ---- SIDEBAR ----
 st.sidebar.markdown("<h1 style='text-align: center;'></h1>", unsafe_allow_html=True)
-
 st.sidebar.image('logo2.png', caption='Manutenção de motores')
 st.sidebar.header("Adicione Filtros")
 ano = st.sidebar.multiselect(
