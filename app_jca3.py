@@ -126,7 +126,7 @@ with col[1]:
     # Formatar valores de Serviços para serem exibidos na barra de progresso
     # Exibir DataFrame com barras de progresso coloridas
     st.dataframe(df_clientes, column_config=column_config, hide_index=True,
-                 width=1500)
+                 width=1500,use_container_width=True)
 
 data = {
     'Mês':['Jan','Fev','Mar'],
