@@ -55,7 +55,7 @@ st.markdown("""---""")
 
 # ---- SIDEBAR ----
 st.sidebar.markdown("<h1 style='text-align: center;'></h1>", unsafe_allow_html=True)
-st.sidebar.image('logo2.png', caption='Manutenção de motores')
+#st.sidebar.image('logo2.png', caption='Manutenção de motores')
 st.sidebar.header("Adicione Filtros")
 ano = st.sidebar.multiselect(
     "Selecione o ano:",
